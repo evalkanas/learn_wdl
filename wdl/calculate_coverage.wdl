@@ -22,7 +22,6 @@ workflow countCoverage {
     File ref_dict
 
     File? gatk4_jar_override
-    String gatk_docker
 
     # Runtime configuration overrides
     RuntimeAttr? runtime_attr_combine_random_sort
@@ -42,6 +41,10 @@ workflow countCoverage {
   meta {
     author: "Elise Valkanas"
     email: "valkanas@broadinstitute.org"
+  }
+
+  output {
+    File wgsCoverage_metrics = countCoverage.wgs_coverage_file
   }
     
 
